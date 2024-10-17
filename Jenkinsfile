@@ -58,7 +58,7 @@ pipeline {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         bat '''
                         docker build -t gateway-sr:latest .
-                        docker run -d --network my-network -p 8222:8222 --name gateway-sr security-sr:latest
+                        docker run -d --network my-network -p 8222:8222 --name gateway-sr gateway-sr:latest
                         '''
                     }
                 }
